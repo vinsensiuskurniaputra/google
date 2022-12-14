@@ -18,7 +18,7 @@ const SearchHeader = () => {
     }
 
   return (
-    <header className='sticky top-0 bg-white border-b border-2 border-gray-200'>
+    <header className='sticky top-0 bg-white border-b border-2 border-gray-200 z-[5]'>
       <div className='p-6 w-full items-center flex'>
         <img
           onClick={() => router.push("/")}
