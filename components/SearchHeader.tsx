@@ -11,10 +11,11 @@ const SearchHeader = () => {
     const search = (event) => {
         event.preventDefault();
         const term = searchInputRef.current.value.trim()
-        if(!term)(
+        if(!term){
             router.push('/')
+        } else (
+          router.push(`/search?term=${term}&searchType=${router.query.searchType}`)
         )
-        router.push(`/search?term=${term}&searchType=${router.query.searchType}`);
     }
 
   return (

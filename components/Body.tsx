@@ -9,8 +9,16 @@ const Body = () => {
   const search = (event) => {
     event.preventDefault();
     const term = searchInputRef.current.value;
-    if(!term.trim)return;
+    if(!term.trim())return;
     router.push(`/search?term=${term.trim()}&searchType=`)
+  };
+  const randomSearch = async (event) => {
+    event.preventDefault();
+    const term = await fetch(
+      "https://random-word-api.herokuapp.com/word?number=1"
+    ).then((response) => response.json());
+    if(!term)return;
+    router.push(`/search?term=${term}&searchType=`)
   };
 
   return (
@@ -33,7 +41,7 @@ const Body = () => {
         <button type="submit" onClick={search} className='btn'>
           Google Search
         </button>
-        <button className='btn'>I'm Feeling Lucky</button>
+        <button onClick={randomSearch} className='btn'>I&apos;m Feeling Lucky</button>
       </div>
     </form>
   );
