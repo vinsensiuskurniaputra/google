@@ -14,7 +14,7 @@ const SearchHeader = () => {
         if(!term)(
             router.push('/')
         )
-        router.push(`/search?term=${term}&searchType=`);
+        router.push(`/search?term=${term}&searchType=${router.query.searchType}`);
     }
 
   return (
