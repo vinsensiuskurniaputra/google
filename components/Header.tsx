@@ -19,7 +19,17 @@ const Header = () => {
         <Link href='https://mail.google.com/'>
           <p className='link'>Gmail</p>
         </Link>
-        <p onClick={() => router.push(`/search?term=${router.query.term || 'google'}&searchType=image`)} className='link'>Images</p>
+        <p
+          onClick={() =>
+            router.push(
+              `/search?term=${router.query.term || "google"}&searchType=image`
+            )
+          }
+          className='link'
+        >
+          Images
+        </p>
+        {/* @ts-ignore */}
         <User />
       </div>
     </header>

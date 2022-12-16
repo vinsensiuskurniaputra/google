@@ -6,13 +6,14 @@ import { useRef } from "react";
 const Body = () => {
   const router = useRouter();
   const searchInputRef = useRef(null);
-  const search = (event) => {
+  const search = (event:any) => {
     event.preventDefault();
+    // @ts-ignore
     const term = searchInputRef.current.value;
-    if(!term.trim())return;
-    router.push(`/search?term=${term.trim()}&searchType=`)
+    if (!term.trim()) return;
+    router.push(`/search?term=${term.trim()}&searchType=`);
   };
-  const randomSearch = async (event) => {
+  const randomSearch = async (event:any) => {
     event.preventDefault();
     const term = await fetch(
       "https://random-word-api.herokuapp.com/word?number=1"
